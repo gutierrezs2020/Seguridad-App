@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Global S.A | Fan Page</title>
+
+<style>
+:root {
+    --negro-mate: #121212;
+    --azul-rey: #0b3d91;
+    --amarillo: #ffc300;
+    --blanco: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background-color: var(--negro-mate);
+    color: var(--blanco);
+}
+
+/* HEADER */
+header {
+    background-color: var(--azul-rey);
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: var(--amarillo);
+    font-size: 2.5rem;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    background-color: var(--negro-mate);
+    padding: 15px;
+    border-bottom: 2px solid var(--amarillo);
+}
+
+nav a {
+    color: var(--blanco);
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+nav a:hover {
+    color: var(--amarillo);
+}
+
+/* HERO */
+.hero {
+    position: relative;
+    height: 70vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: url('https://images.unsplash.com/photo-1492724441997-5dc865305da7') no-repeat center center/cover;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+.hero h2 {
+    color: var(--amarillo);
+    font-size: 2.2rem;
+}
+
+/* SECCION ACORDEON */
+.acordeon-section {
+    padding: 50px 20px;
+    text-align: center;
+}
+
+.acordeon-section h2 {
+    color: var(--amarillo);
+    margin-bottom: 30px;
+}
+
+.acordeon {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    margin: auto;
+    height: 400px;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.panel {
+    flex: 1;
+    background-size: cover;
+    background-position: center;
+    transition: flex 0.5s ease;
+    position: relative;
+    cursor: pointer;
+}
+
+.panel::after {
+    content: attr(data-title);
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: var(--blanco);
+    background: rgba(11,61,145,0.8);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.panel:hover {
+    flex: 4;
+}
+
+/* FOOTER */
+footer {
+    background-color: var(--azul-rey);
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .acordeon {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .panel {
+        height: 200px;
+    }
+
+    .panel:hover {
+        flex: 1;
+    }
+
+    header h1 {
+        font-size: 2rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>🌍 Global S.A</h1>
+</header>
+
+<nav>
+    <a href="#">Inicio</a>
+    <a href="#">Proyectos</a>
+    <a href="#">Galería</a>
+    <a href="#">Contacto</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-content">
+        <h2>Innovación y Expansión Mundial</h2>
+        <p>Conectando negocios, tecnología y futuro.</p>
+    </div>
+</section>
+
+<section class="acordeon-section">
+    <h2>Nuestros Proyectos Globales</h2>
+
+    <div class="acordeon">
+        <div class="panel" data-title="Tecnología"
+            style="background-image: url('https://images.unsplash.com/photo-1518779578993-ec3579fee39f');">
+        </div>
+
+        <div class="panel" data-title="Infraestructura"
+            style="background-image: url('https://images.unsplash.com/photo-1503387762-592deb58ef4e');">
+        </div>
+
+        <div class="panel" data-title="Energía"
+            style="background-image: url('https://images.unsplash.com/photo-1509395176047-4a66953fd231');">
+        </div>
+
+        <div class="panel" data-title="Finanzas"
+            style="background-image: url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40');">
+        </div>
+    </div>
+</section>
+
+<footer>
+    © 2026 Global S.A | Expansión • Innovación • Liderazgo
+</footer>
+
+</body>
+</html>
