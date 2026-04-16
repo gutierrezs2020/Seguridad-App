@@ -1,0 +1,260 @@
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --primary-glow: rgba(99, 102, 241, 0.15);
+    --success: #22c55e;
+    --error: #ef4444;
+    --text: #1e293b;
+    --text-muted: #64748b;
+    --gray: #94a3b8;
+    --border: #e2e8f0;
+    --bg-card: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', system-ui, sans-serif;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding: 1rem;
+}
+
+/* --- Contenedor principal --- */
+.login-container {
+    background: var(--bg-card);
+    padding: 2.5rem;
+    border-radius: 1.5rem;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    width: 100%;
+    max-width: 420px;
+    animation: slideUp 0.4s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Cabecera del formulario --- */
+.form-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.logo-icon {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+h2 {
+    color: var(--text);
+    margin: 0 0 0.4rem 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+
+.subtitle {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    margin: 0;
+}
+
+/* --- Grupos de inputs --- */
+.input-group {
+    margin-bottom: 1.4rem;
+}
+
+label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.45rem;
+    color: var(--text);
+}
+
+.input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon {
+    position: absolute;
+    left: 0.85rem;
+    font-size: 1rem;
+    pointer-events: none;
+    z-index: 1;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+    width: 100%;
+    padding: 0.8rem 0.85rem 0.8rem 2.6rem;
+    border: 2px solid var(--border);
+    border-radius: 0.75rem;
+    font-family: inherit;
+    font-size: 0.925rem;
+    color: var(--text);
+    background: #f8fafc;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
+input:focus {
+    outline: none;
+    border-color: var(--primary);
+    background: #ffffff;
+    box-shadow: 0 0 0 4px var(--primary-glow);
+}
+
+/* --- Campo de contraseña --- */
+.password-wrapper {
+    position: relative;
+}
+
+#togglePassword {
+    position: absolute;
+    right: 0.85rem;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    padding: 0;
+    line-height: 1;
+    transition: opacity 0.2s;
+}
+
+#togglePassword:hover {
+    opacity: 0.7;
+}
+
+/* --- Lista de requisitos --- */
+.requirements-list {
+    list-style: none;
+    padding: 0;
+    margin: 0.8rem 0 0 0;
+    font-size: 0.8rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem 1rem;
+}
+
+.requirements-list li {
+    padding-left: 1.4rem;
+    position: relative;
+    transition: color 0.3s ease;
+    color: var(--gray);
+}
+
+.requirements-list li::before {
+    content: '✕';
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+    color: var(--error);
+}
+
+.requirements-list li.valid {
+    color: var(--success);
+}
+
+.requirements-list li.valid::before {
+    content: '✓';
+    color: var(--success);
+}
+
+.requirements-list li.invalid {
+    color: var(--gray);
+}
+
+.requirements-list li.invalid::before {
+    color: var(--gray);
+}
+
+/* --- Contenedor Google reCAPTCHA --- */
+.captcha-container {
+    margin-bottom: 1.4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+}
+
+.captcha-container .g-recaptcha {
+    transform-origin: left top;
+}
+
+/* --- Mensajes de error --- */
+.error-message {
+    display: block;
+    font-size: 0.78rem;
+    color: var(--error);
+    margin-top: 0.35rem;
+    min-height: 1em;
+    font-weight: 500;
+}
+
+/* --- Botón principal --- */
+button[type="submit"] {
+    width: 100%;
+    background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+    color: white;
+    padding: 0.95rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.35);
+    margin-top: 0.5rem;
+}
+
+button[type="submit"]:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(99, 102, 241, 0.45);
+}
+
+button[type="submit"]:active {
+    transform: translateY(0);
+}
+
+/* --- Timer (dashboard) --- */
+.timer {
+    background: #fee2e2;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: inline-block;
+    margin: 10px 0;
+    border: 1px solid var(--error);
+    font-weight: bold;
+    color: var(--error);
+    font-size: 1.2rem;
+}
